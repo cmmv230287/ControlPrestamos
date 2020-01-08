@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8673E1BC-4A2E-4F36-9B49-018C4CD57C32}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlPrestamos</RootNamespace>
+    <AssemblyName>ControlPrestamos</AssemblyName>
+    <ApplicationIcon>Money_Calculator.ico</ApplicationIcon>
+    <StartupObject>ControlPrestamos.Program</StartupObject>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\Microsoft Visual Studio 10.0\Visual Studio Tools for Office\PIA\Office12\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\DB\ConexionDB.cs" />
+    <Compile Include="Clases\Presentacion\DatosLogin.cs" />
+    <Compile Include="Clases\Presentacion\Informes.cs" />
+    <Compile Include="Clases\Presentacion\Mensajes.cs" />
+    <Compile Include="Clases\Reglas\FrecPago.cs" />
+    <Compile Include="Clases\Reglas\Gasto.cs" />
+    <Compile Include="Clases\Reglas\Cliente.cs" />
+    <Compile Include="Clases\Reglas\Cuota.cs" />
+    <Compile Include="Clases\Reglas\Generador.cs" />
+    <Compile Include="Clases\Reglas\Indices.cs" />
+    <Compile Include="Clases\Reglas\Persona.cs" />
+    <Compile Include="Clases\Reglas\Prestamo.cs" />
+    <Compile Include="Clases\Reglas\Usuario.cs" />
+    <Compile Include="datos.cs" />
+    <Compile Include="Formularios\formBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formBackup.Designer.cs">
+      <DependentUpon>formBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formCuotasDias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formCuotasDias.Designer.cs">
+      <DependentUpon>formCuotasDias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formFrecPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formFrecPago.Designer.cs">
+      <DependentUpon>formFrecPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formGastos.Designer.cs">
+      <DependentUpon>formGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formConfig.Designer.cs">
+      <DependentUpon>formConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formCuotas.Designer.cs">
+      <DependentUpon>formCuotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formClientes.Designer.cs">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formInformes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formInformes.Designer.cs">
+      <DependentUpon>formInformes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formLimpiar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formLimpiar.Designer.cs">
+      <DependentUpon>formLimpiar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formListaPrestamosIndices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formListaPrestamosIndices.Designer.cs">
+      <DependentUpon>formListaPrestamosIndices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formPersona.Designer.cs">
+      <DependentUpon>formPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formOrganizarIndices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\formOrganizarIndices.Designer.cs">
+      <DependentUpon>formOrganizarIndices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportarDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportarDatos.Designer.cs">
+      <DependentUpon>ImportarDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\formBackup.resx">
+      <DependentUpon>formBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formClientes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formCuotas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formCuotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formCuotasDias.resx">
+      <DependentUpon>formCuotasDias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formFrecPago.resx">
+      <DependentUpon>formFrecPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formGastos.resx">
+      <DependentUpon>formGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formInformes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formInformes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formLimpiar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formLimpiar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formListaPrestamosIndices.resx">
+      <DependentUpon>formListaPrestamosIndices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formOrganizarIndices.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>formOrganizarIndices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formPersona.resx">
+      <DependentUpon>formPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inicio.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportarDatos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImportarDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="config.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSave.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FilePreview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_log-manager_bg.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitprintpreview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_menu12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adresse.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileNew.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_cancel_16n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scrolldn.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\respaldo2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\llenado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\respaldo21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asignar_bodega.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditReplace.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\realizar_orden_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sedes_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sedes_11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Cancel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canda16_xp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clave_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WZCLOSE.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WZDELETE.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clases_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DAO">
+      <Guid>{00025E01-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ok.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_cancel_16n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_ciudad.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="desktop.ico" />
+    <Content Include="downloads.ico" />
+    <Content Include="Money_Calculator.ico" />
+    <Content Include="Resources\page_excel.png" />
+    <None Include="Resources\rainbow.png" />
+    <None Include="Resources\book_open.png" />
+    <None Include="Resources\EditReplace1.bmp" />
+    <None Include="Resources\reload_page_16n.png" />
+    <None Include="Resources\messagebox_critical_16n.png" />
+    <None Include="Resources\bigrotation2.gif" />
+    <None Include="Resources\TabAbrir2.bmp" />
+    <None Include="Resources\TabCerrar2.bmp" />
+    <None Include="Resources\marcas.bmp" />
+    <None Include="Resources\marcas_1.bmp" />
+    <None Include="Resources\Money-128x128.png" />
+    <None Include="Resources\Money-64x64.png" />
+    <None Include="Resources\Coinstack-64.png" />
+    <None Include="Resources\User.bmp" />
+    <None Include="Resources\btn_databases_bg.gif" />
+    <None Include="Resources\Frx2Any_Acepta.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
